@@ -1,7 +1,11 @@
 #pragma once
 
 #include <string>
-using namespace std;
+
+enum class OrderSide {
+    BUY,
+    SELL,
+};
 
 enum class OrderType {
 
@@ -9,11 +13,11 @@ enum class OrderType {
 
 struct Order {
     int id_;
-    double prc_;
+    uint64_t prc_;
     uint64_t qty_;
-    bool isBuy_;
+    OrderSide side_;
     
-    Order(int id,  double prc, int qty, bool isBuy)
-    : id_(id), prc_(prc), qty_(qty) {}
+    Order(int id,  uint64_t prc, int qty, OrderSide side)
+    : id_(id), prc_(prc), qty_(qty), side_(side) {} // Constructor initialization list
     
 };
