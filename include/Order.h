@@ -1,10 +1,9 @@
 #pragma once
 
-#include <string>
-
 enum class OrderSide {
     BUY,
     SELL,
+    UNKNOWN
 };
 
 enum class OrderType {
@@ -12,12 +11,12 @@ enum class OrderType {
 };
 
 struct Order {
-    int id_;
-    uint64_t prc_;
-    uint64_t qty_;
-    OrderSide side_;
+    uint64_t id_ = 0;
+    uint64_t prc_ = 0;
+    uint64_t qty_ = 0;
+    OrderSide side_ = OrderSide::UNKNOWN;
     
-    Order(int id,  uint64_t prc, int qty, OrderSide side)
+    Order(uint64_t id,  uint64_t prc, int qty, OrderSide side)
     : id_(id), prc_(prc), qty_(qty), side_(side) {} // Constructor initialization list
     
 };
